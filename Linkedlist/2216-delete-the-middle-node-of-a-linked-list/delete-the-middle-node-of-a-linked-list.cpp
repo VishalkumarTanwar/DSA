@@ -27,7 +27,8 @@ public:
         }
 
         // slow is now at middle, prev is before it
-        prev->next = slow->next;
+        prev->next = slow->next
+        ;
         delete slow;
 
         return head;
