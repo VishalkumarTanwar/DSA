@@ -9,23 +9,23 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-
 class Solution {
 public:
-    long long prev = LLONG_MIN;
-    
-    bool inorder(TreeNode* root) {
-        if (root == NULL) return true;
-        
-        if (!inorder(root->left)) return false;
-        
-        if (root->val <= prev) return false;
-        prev = root->val;
-        
-        return inorder(root->right);
+vector<int>ans;
+    vector<int> inorder(TreeNode* root){
+        if(root==NULL)return {} ;
+        inorder(root->left);
+        ans.push_back(root->val);
+        inorder(root->right);
+        return ans;
     }
-    
+
     bool isValidBST(TreeNode* root) {
-        return inorder(root);
+        inorder(root);
+        for(int i=1;i<ans.size();i++){
+            if(ans[i-1]>=ans[i])return false;
+            
+        }
+        return true;
     }
 };
