@@ -39,8 +39,8 @@ public:
             ptr->next = new ListNode(sum);
             ptr = ptr->next;
         }
-            if (carry == 1) {
-             ptr->next = new ListNode(1);
+            if (carry) {
+             ptr->next = new ListNode(carry);
         }
             return result->next;   
     }   
