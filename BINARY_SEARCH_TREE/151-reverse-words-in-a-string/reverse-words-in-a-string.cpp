@@ -1,14 +1,12 @@
 class Solution {
 public:
-      #include <sstream>
     string reverseWords(string s) {
         stringstream ss(s);
-        string word;
-        string ans="";
-        while(ss>>word){
-            ans= word + " "+ans;
+        string token="";
+        string result="";
+        while(ss>>token){
+            result= token+ " "+ result;
         }
-    
-        return ans.substr(0,ans.length()-1);
+        return result.substr(0,result.size()-1);
     }
 };
